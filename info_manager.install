@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ *   Information module install/schema hooks.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+ 
+function info_manager_schema() {
+  $schema = array();
+  $schema['info_manager'] = array(
+     // specification for  table info_manager
+	 'fields' => array(
+      'id' => array(
+        'description' => t('The primary identifier for a record.'),
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,),
+      'first_name' => array(
+        'description' => t('The first name of the contact.'),
+        'type' => 'varchar',
+		'length' => 50,),
+      'last_name' => array(
+        'description' => t('The last name of the contact.'),
+        'type' => 'varchar',
+        'length' => 50,),
+      'email' => array(
+        'description' => t('The email of the contact.'),
+        'type' => 'varchar',
+        'length' => 100,),
+      ), 
+    'primary key' => array('id'),
+  );
+  return $schema;
+}
+function info_manager_install() {
+  // Create tables.
+  drupal_install_schema('info_manager');
+}
+function info_manager_uninstall() {
+  // Drop tables.
+  drupal_uninstall_schema('info_manager');
+}
