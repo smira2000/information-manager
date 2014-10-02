@@ -1,0 +1,9 @@
+name = "Information Manager"
+description = "Add, Update, Delete, Display the information to/from the Database."
+core = "7.x"
+
+configure = "admin/config/info_manager/data/process" 
+ 
+; Information added  
+;version = "7.x-1.0"
+;core = "7.x"
